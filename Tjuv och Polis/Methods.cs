@@ -8,9 +8,17 @@ namespace Tjuv_och_Polis
 {
     internal class Methods
     {
-        public static void Generate()
+        public static List<Person> Generate(List<Person> persons)
         {
+            for (int i = 0; i < 5; i++)
+            {
 
+                persons.Add(new Thief());
+                persons.Add(new Police());
+                persons.Add(new Citizen());
+            }
+
+            return persons;
         }
 
         public static void Draw(string[,] cityDraw)

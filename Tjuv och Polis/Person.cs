@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Tjuv_och_Polis
 {
-    internal class Person
+    internal class Person 
     {
         public int PositionX { get; set; }
         public int PositionY { get; set; }
