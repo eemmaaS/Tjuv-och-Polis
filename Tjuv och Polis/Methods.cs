@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tjuv_och_Polis
-{
+{ //test123
     internal class Methods
     {
         public static List<Person> Move(List<Person> persons, string[,]city)
@@ -13,7 +13,7 @@ namespace Tjuv_och_Polis
             foreach (Person person in persons)
             {
                 if (person.PositionX + person.MoveX < 0)
-                {
+                { 
                     person.PositionX = city.GetLength(0) - 1;
                 }
                 if (person.PositionY + person.MoveY < 0)
