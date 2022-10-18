@@ -14,17 +14,17 @@ namespace Tjuv_och_Polis
             {
                 if (person.PositionX + person.MoveX < 0)
                 {
-                    person.PositionX = city.GetLength(0) - 1;
+                    person.PositionX = city.GetLength(1) - 1;
                 }
                 if (person.PositionY + person.MoveY < 0)
                 { 
-                    person.PositionY = city.GetLength(1)-1;
+                    person.PositionY = city.GetLength(0)-1;
                 }
-                if (person.PositionX + person.MoveX > city.GetLength(0)-1)
+                if (person.PositionX + person.MoveX > city.GetLength(1)-1)
                 {
                     person.PositionX = 0;
                 }
-                if (person.PositionY + person.MoveY > city.GetLength(1)-1)
+                if (person.PositionY + person.MoveY > city.GetLength(0)-1)
                 {
                     person.PositionY = 0;
                 }
@@ -45,15 +45,12 @@ namespace Tjuv_och_Polis
                 persons.Add(new Police(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
                 persons.Add(new Citizen(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
             }
-
             return persons;
         }
 
         public static void Draw(string[,] cityDraw)
         {
-            
             string frame = "#";
-
             for (int top = 0; top < cityDraw.GetLength(1) + 2; top++)
             {
                 Console.Write(frame);
