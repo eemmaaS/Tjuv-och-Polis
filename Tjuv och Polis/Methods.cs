@@ -10,12 +10,12 @@ namespace Tjuv_och_Polis
     {
         public static List<Person> Generate(List<Person> persons)
         {
+            Random random = new Random();
             for (int i = 0; i < 5; i++)
             {
-
-                persons.Add(new Thief());
-                persons.Add(new Police());
-                persons.Add(new Citizen());
+                persons.Add(new Thief(random.Next(0, 25), random.Next(0, 100)));
+                persons.Add(new Police(random.Next(0, 25), random.Next(0, 100)));
+                persons.Add(new Citizen(random.Next(0, 25), random.Next(0, 100)));
             }
 
             return persons;

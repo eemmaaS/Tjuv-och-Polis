@@ -8,6 +8,10 @@ namespace Tjuv_och_Polis
 {
     internal class Police : Person
     {
+        public Police(int positionX, int positionY) : base(positionX, positionY)
+        {
+
+        }
         public override char Marker => 'P';
 
         public override void Interact()

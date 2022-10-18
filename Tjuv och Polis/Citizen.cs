@@ -11,12 +11,12 @@ namespace Tjuv_och_Polis
 {
     internal class Citizen : Person
     {
-        public Citizen()
+        public Citizen (int positionX, int positionY) : base (positionX, positionY)
         {
-            this.Inventory.Add("Nycklar");
-            this.Inventory.Add("Plånbok");
-            this.Inventory.Add("Mobiltelefon");
-            this.Inventory.Add("Klocka");
+            this.Inventory.Add(new Thing("Nycklar"));
+            this.Inventory.Add(new Thing("Plånbok"));
+            this.Inventory.Add(new Thing("Mobiltelefon"));
+            this.Inventory.Add(new Thing("Klocka"));
         }
         public override char Marker => 'M';
 

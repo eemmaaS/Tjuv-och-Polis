@@ -9,10 +9,16 @@ namespace Tjuv_och_Polis
 {
     internal class Person 
     {
+        public Person (int positionX, int positionY)
+        {
+            PositionX = positionX;
+            PositionY = positionY;           
+        }
+
         public int PositionX { get; set; }
         public int PositionY { get; set; }
 
-        public List<string> Inventory { get; set; } = new List<string>();
+        public List<Thing> Inventory { get; set; } = new List<Thing>();
 
         public virtual char Marker { get; set; }
 
