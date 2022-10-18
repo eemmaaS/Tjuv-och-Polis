@@ -13,8 +13,7 @@
                 city[person.PositionX, person.PositionY] = person.Marker.ToString();
             }
 
-            Methods.Draw(city);
-
+            Methods.Draw(city);         
             Console.ReadKey();
             //testet
             //test1234
