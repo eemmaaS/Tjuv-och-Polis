@@ -5,11 +5,12 @@
         static void Main(string[] args)
         {
             List<Person> persons = new List<Person>();
-            string[,] city = new string[25, 100];            
+                       
             persons = Methods.Generate(persons);
 
             while (true)
             {
+                string[,] city = new string[25, 100];
                 foreach (Person person in persons)
                 {
                     city[person.PositionY, person.PositionX] = person.Marker.ToString();
@@ -20,9 +21,7 @@
                 Console.Clear();               
             }
                    
-            Console.ReadKey();
-            //testet
-            //test1234
+           
         }
     }
 }
