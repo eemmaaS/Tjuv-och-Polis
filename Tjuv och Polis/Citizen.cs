@@ -11,7 +11,7 @@ namespace Tjuv_och_Polis
 {
     internal class Citizen : Person
     {
-        public Citizen (int positionX, int positionY) : base (positionX, positionY)
+        public Citizen(int positionX, int positionY, int moveX, int moveY) : base(positionX, positionY, moveX, moveY)
         {
             this.Inventory.Add(new Thing("Nycklar"));
             this.Inventory.Add(new Thing("Plånbok"));

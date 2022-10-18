@@ -8,12 +8,18 @@
             string[,] city = new string[25, 100];            
             persons = Methods.Generate(persons);
 
-            foreach (Person person in persons)
+            while (true)
             {
-                city[person.PositionX, person.PositionY] = person.Marker.ToString();
+                foreach (Person person in persons)
+                {
+                    city[person.PositionY, person.PositionX] = person.Marker.ToString();
+                }
+                Methods.Draw(city);
+                persons = Methods.Move(persons, city);
+                Thread.Sleep(200);
+                Console.Clear();               
             }
-
-            Methods.Draw(city);         
+                   
             Console.ReadKey();
             //testet
             //test1234

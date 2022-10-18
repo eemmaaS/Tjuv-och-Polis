@@ -9,17 +9,20 @@ namespace Tjuv_och_Polis
 {
     internal class Person 
     {
-        public Person (int positionX, int positionY, int moveY, move)
+        public Person (int positionX, int positionY, int moveX, int moveY)
         {
             PositionX = positionX;
-            PositionY = positionY;  
-            
+            PositionY = positionY; 
+            MoveX = moveX;
+            MoveY = moveY;
         }
 
         public int PositionX { get; set; }
         public int PositionY { get; set; }
-        public int MoveX { get; set; }  
+
+        public int MoveX { get; set; }
         public int MoveY { get; set; }
+
 
         public List<Thing> Inventory { get; set; } = new List<Thing>();
 

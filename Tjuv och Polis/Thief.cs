@@ -8,7 +8,7 @@ namespace Tjuv_och_Polis
 {
     internal class Thief : Person
     {
-        public Thief(int positionX, int positionY) : base(positionX, positionY)
+        public Thief(int positionX, int positionY, int moveX, int moveY) : base(positionX, positionY, moveX, moveY)
         {
 
         }

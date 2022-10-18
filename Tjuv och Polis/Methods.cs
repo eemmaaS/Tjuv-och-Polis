@@ -8,14 +8,42 @@ namespace Tjuv_och_Polis
 {
     internal class Methods
     {
+        public static List<Person> Move(List<Person> persons, string[,]city)
+        {
+            foreach (Person person in persons)
+            {
+                if (person.PositionX + person.MoveX < 0)
+                {
+                    person.PositionX = city.GetLength(0) - 1;
+                }
+                if (person.PositionY + person.MoveY < 0)
+                { 
+                    person.PositionY = city.GetLength(1)-1;
+                }
+                if (person.PositionX + person.MoveX > city.GetLength(0)-1)
+                {
+                    person.PositionX = 0;
+                }
+                if (person.PositionY + person.MoveY > city.GetLength(1)-1)
+                {
+                    person.PositionY = 0;
+                }
+                else
+                {
+                    person.PositionY = person.PositionY + person.MoveY;
+                    person.PositionX = person.PositionX + person.MoveX;
+                }
+            }
+            return persons;
+        }
         public static List<Person> Generate(List<Person> persons)
         {
             Random random = new Random();
             for (int i = 0; i < 5; i++)
             {
-                persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25)));
-                persons.Add(new Police(random.Next(0, 100), random.Next(0, 25)));
-                persons.Add(new Citizen(random.Next(0, 100), random.Next(0, 25)));
+                persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25),random.Next(-1,2), random.Next(-1,2)));
+                persons.Add(new Police(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
+                persons.Add(new Citizen(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
             }
 
             return persons;
