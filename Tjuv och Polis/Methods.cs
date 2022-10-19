@@ -50,72 +50,81 @@
                 {
                     if (i != j)
                     {
+                       
+
                         if (persons[i].PositionX == persons[j].PositionX && persons[i].PositionY == persons[j].PositionY)
                         {
-                            persons[i].Interact(persons[j], i, j);
+                            if (persons[i] is Police)
+                            {
+                                ((Police)persons[i]).Interact(persons[j],persons, prisoners,i,j);
+                            }
+                            else
+                            {
+                                persons[i].Interact(persons[j], i, j);
+                            }
                         }
                     }
                 }
             }
         }
 
-        public static void Draw(string[,] cityDraw)
+        public static void Draw(string[,] drawArray)
         {
 
             string frame = "#";
 
-            for (int top = 0; top < cityDraw.GetLength(1) + 2; top++)
+            for (int top = 0; top < drawArray.GetLength(1) + 2; top++)
             {
                 Console.Write(frame);
             }
             Console.WriteLine();
 
-            for (int row = 0; row < cityDraw.GetLength(0); row++)
+            for (int row = 0; row < drawArray.GetLength(0); row++)
             {
                 Console.Write(frame);
-                for (int col = 0; col < cityDraw.GetLength(1); col++)
+                for (int col = 0; col < drawArray.GetLength(1); col++)
                 {
-                    Console.Write(cityDraw[row, col] == null ? " " : cityDraw[row, col]);
+                    Console.Write(drawArray[row, col] == null ? " " : drawArray[row, col]);
                 }
                 Console.Write(frame);
                 Console.WriteLine();
             }
 
-            for (int bottom = 0; bottom < cityDraw.GetLength(1) + 2; bottom++)
+            for (int bottom = 0; bottom < drawArray.GetLength(1) + 2; bottom++)
             {
                 Console.Write(frame);
             }
             Console.WriteLine();
         }
 
-        public static void Draw(string[,] cityDraw, int offsetLeft)
+        public static void Draw(string[,] drawArray, int offsetLeft)
         {
 
             string frame = "#";
 
             Console.SetCursorPosition(offsetLeft, 0);
 
-            for (int top = 0; top < cityDraw.GetLength(1) + 2; top++)
+            for (int top = 0; top < drawArray.GetLength(1) + 2; top++)
             {
 
                 Console.Write(frame);
             }
             Console.WriteLine();
 
-            for (int row = 0; row < cityDraw.GetLength(0); row++)
+            for (int row = 0; row < drawArray.GetLength(0); row++)
             {
                 Console.SetCursorPosition(offsetLeft, row + 1);
                 Console.Write(frame);
-                for (int col = 0; col < cityDraw.GetLength(1); col++)
+                for (int col = 0; col < drawArray.GetLength(1); col++)
                 {
-                    Console.Write(cityDraw[row, col] == null ? " " : cityDraw[row, col]);
+                    Console.Write(drawArray[row, col] == null ? " " : drawArray[row, col]);
                 }
                 Console.Write(frame);
                 Console.WriteLine();
             }
             var cursorRow = Console.GetCursorPosition();
             Console.SetCursorPosition(offsetLeft, cursorRow.Top);
-            for (int bottom = 0; bottom < cityDraw.GetLength(1) + 2; bottom++)
+            for (int bottom = 0; bottom < drawArray.GetLength(1) + 2; bottom++)
             {
 
                 Console.Write(frame);

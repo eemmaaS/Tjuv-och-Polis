@@ -8,7 +8,7 @@
         }
         public override char Marker => 'P';
 
-        public override Person Interact(Person person, int indexi, int indexj)
+        public Person Interact(Person person, List<Person> people, List<Person> prisoners, int indexi, int indexj)
         {
             if (person is Thief)
             {
@@ -16,6 +16,10 @@
                 {
                     this.Inventory.AddRange(person.Inventory);
                     person.Inventory.Clear();
+                    prisoners.Add(person);
+                    people.Remove(person);
+                    Console.SetCursorPosition(0, 30);
+                    Console.WriteLine("Nu åkte en i fängelse");
                 }
             }
             return person;
