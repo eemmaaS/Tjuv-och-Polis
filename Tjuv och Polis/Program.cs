@@ -4,9 +4,9 @@
     {
         static void Main(string[] args)
         {
-            List<Person> persons = new List<Person>();         
+            List<Person> persons = new List<Person>();
             persons = Methods.Generate(persons);
-
+            Console.CursorVisible = false;
             while (true)
             {
                 string[,] city = new string[25, 100];
@@ -18,9 +18,8 @@
                 Methods.Compare(persons);
                 persons = Methods.Move(persons, city);
                 Thread.Sleep(200);
-                Console.Clear();               
+                Console.SetCursorPosition(0, 0);
             }
-                   
         }
     }
 }
