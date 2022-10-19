@@ -14,7 +14,7 @@ namespace Tjuv_och_Polis
         }
         public override char Marker => 'T';
 
-        public override Person Interact(Person person)
+        public override Person Interact(Person person, int indexi, int indexj)
         {
             if(person is Citizen)
             {
@@ -22,6 +22,7 @@ namespace Tjuv_och_Polis
                 int rnd = random.Next(0, person.Inventory.Count - 1);
                 this.Inventory.Add(person.Inventory[rnd]);
                 person.Inventory.RemoveAt(rnd);
+           
             }
             return person;
         }

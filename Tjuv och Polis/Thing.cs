@@ -13,6 +13,11 @@ namespace Tjuv_och_Polis
             Name = name;
         }
 
-            string Name { get; set; } 
+            string Name { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
+
 }

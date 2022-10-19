@@ -39,7 +39,7 @@ namespace Tjuv_och_Polis
         public static List<Person> Generate(List<Person> persons)
         {
             Random random = new Random();
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 15; i++)
             {
                 persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25),random.Next(-1,2), random.Next(-1,2)));
                 persons.Add(new Police(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
@@ -58,7 +58,7 @@ namespace Tjuv_och_Polis
                     {
                         if (persons[i].PositionX == persons[j].PositionX && persons[i].PositionY == persons[j].PositionY)
                         {
-                            persons[i].Interact(persons[j]);
+                            persons[i].Interact(persons[j],i,j);
                         }
                     }
                 }
