@@ -15,6 +15,7 @@
                     city[person.PositionY, person.PositionX] = person.Marker.ToString();
                 }
                 Methods.Draw(city);
+                Methods.Compare(persons);
                 persons = Methods.Move(persons, city);
                 Thread.Sleep(200);
                 Console.Clear();               

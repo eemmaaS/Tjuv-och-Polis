@@ -14,9 +14,17 @@ namespace Tjuv_och_Polis
         }
         public override char Marker => 'P';
 
-        public override void Interact()
+        public override Person Interact(Person person)
         {
-
+            if (person is Thief)
+            {
+                if(person.Inventory != null)
+                {
+                    this.Inventory.AddRange(person.Inventory);
+                    person.Inventory.Clear();
+                }
+            }
+            return person;
         }
     }
 }

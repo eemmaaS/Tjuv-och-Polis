@@ -48,6 +48,22 @@ namespace Tjuv_och_Polis
 
             return persons;
         }
+        public static void Compare(List<Person> persons)
+        {
+            for (int i = 0; i < persons.Count; i++)
+            {
+                for (int j = 0; j < persons.Count; j++)
+                {
+                    if (i != j)
+                    {
+                        if (persons[i].PositionX == persons[j].PositionX && persons[i].PositionY == persons[j].PositionY)
+                        {
+                            persons[i].Interact(persons[j]);
+                        }
+                    }
+                }
+            }
+        }
 
         public static void Draw(string[,] cityDraw)
         {

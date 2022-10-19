@@ -28,9 +28,9 @@ namespace Tjuv_och_Polis
 
         public virtual char Marker { get; set; }
 
-        public virtual void Interact()
+        public virtual Person Interact(Person person)
         {
-
+           return person;
         }
     }
 }

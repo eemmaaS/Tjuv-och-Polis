@@ -20,9 +20,13 @@ namespace Tjuv_och_Polis
         }
         public override char Marker => 'M';
 
-        public override void Interact()
+        public override Person Interact(Person person)
         {
-
+            if(person is Citizen)
+            {
+                
+            }
+            return person;
         }
     }
 }
