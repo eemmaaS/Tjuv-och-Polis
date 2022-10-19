@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Tjuv_och_Polis
-{ //test123
+{ 
     internal class Methods
     {
         public static List<Person> Move(List<Person> persons, string[,]city)

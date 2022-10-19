@@ -20,9 +20,6 @@
                 Console.Clear();               
             }
                    
-            Console.ReadKey();
-            //testet
-            //test1234
         }
     }
 }
