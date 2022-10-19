@@ -18,11 +18,20 @@ namespace Tjuv_och_Polis
         {
             if(person is Citizen)
             {
-                Random random = new Random();
-                int rnd = random.Next(0, person.Inventory.Count - 1);
-                this.Inventory.Add(person.Inventory[rnd]);
-                person.Inventory.RemoveAt(rnd);
-           
+                if (person.Inventory != null && person.Inventory.Count > 0)
+                {
+                    Random random = new Random();
+                    int rnd = random.Next(0, person.Inventory.Count - 1);
+                    string stolen_object = person.Inventory[rnd].ToString();
+                    this.Inventory.Add(person.Inventory[rnd]);
+                    person.Inventory.RemoveAt(rnd);
+                    Console.Write("Thief " + indexi + " has stolen " + stolen_object + " from  citizen " + indexj);
+                    Console.ReadKey();
+                }
+               
+                   
+
+
             }
             return person;
         }
