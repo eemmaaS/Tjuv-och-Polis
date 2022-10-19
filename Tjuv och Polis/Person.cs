@@ -1,18 +1,11 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tjuv_och_Polis
+﻿namespace Tjuv_och_Polis
 {
-    internal class Person 
+    internal class Person
     {
-        public Person (int positionX, int positionY, int moveX, int moveY)
+        public Person(int positionX, int positionY, int moveX, int moveY)
         {
             PositionX = positionX;
-            PositionY = positionY; 
+            PositionY = positionY;
             MoveX = moveX;
             MoveY = moveY;
         }
@@ -30,7 +23,7 @@ namespace Tjuv_och_Polis
 
         public virtual Person Interact(Person person, int indexi, int indexj)
         {
-           return person;
+            return person;
         }
     }
 }
