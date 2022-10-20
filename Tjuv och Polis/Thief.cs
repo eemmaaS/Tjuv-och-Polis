@@ -10,13 +10,10 @@
         }
         public override char Marker => 'T';
 
-
         public int TimeLeftInJail { get; set; }
         public bool InJail { get; set; }
 
-        public bool New_activity { get; set; }
-
-
+        
 
         public override Person Interact(Person person, int indexi, int indexj)
         {
@@ -29,13 +26,10 @@
                     string stolen_object = person.Inventory[rnd].ToString();
                     this.Inventory.Add(person.Inventory[rnd]);
                     person.Inventory.RemoveAt(rnd);
-                    Activity = "Personindex (Thief) " + indexi + " has stolen " + stolen_object + " from personindex (Citizen) " + indexj;
+                    Activity = "Persons["+indexi+"](tjuv) har stulit " + stolen_object+ " från persons["+indexj+"](medborgare) ";
                     New_activity = true;
 
-
                 }
-
-
             }
             return person;
         }

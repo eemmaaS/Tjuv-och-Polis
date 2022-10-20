@@ -2,7 +2,6 @@
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             List<string> Activity = new List<string>();
@@ -52,20 +51,24 @@
                 foreach (Person person in persons)
                 {
                     if (person.New_activity == true)
-                    {
+                    {       
                         Activity.Add(person.Activity);
                         person.New_activity = false;
                     }
                 }
-                foreach (string activity in Activity)
-                {
-                    Console.WriteLine(activity);
-                }
 
-                Console.WriteLine("There are currently " + prisoners.Count + " thieves in prison");
+                for ( int i = 0; i < Activity.Count; i++)
+                {
+                    Console.WriteLine(Activity[i]);
+                }
+                if (Activity.Count > 10)
+                {
+                    Activity.Clear();
+                    Console.Clear();
+                }
+                Console.WriteLine("There are currently " + prisoners.Count + " thief/thieves in prison");
                 persons = Methods.Move(persons, city);
-                prisoners = Methods.Move(prisoners, prison);
-                Thread.Sleep(200);
+                prisoners = Methods.Move(prisoners, prison);                              
                 Console.SetCursorPosition(0, 0);
 
             }

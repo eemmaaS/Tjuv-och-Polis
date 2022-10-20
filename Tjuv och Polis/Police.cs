@@ -15,25 +15,17 @@
             {
                 if (person.Inventory.Count > 0)
                 {
-
                     int jailtime = person.Inventory.Count;
-
                     this.Inventory.AddRange(person.Inventory);
                     person.Inventory.Clear();
                     prisoners.Add(person);
                     people.Remove(person);
                     person.PositionX = 0;
                     person.PositionY = 0;
-                    Console.SetCursorPosition(0, 39);
-                    Activity = "Nu skickade person " + indexj + " (polis) person " + indexi + " (tjuv) till fängelset";
+                    Activity = "Nu skickade persons["+indexj+"](polis) persons["+ indexi+"](tjuv) till fängelset";
                     New_activity = true;
                     ((Thief)person).InJail = true;
-                    ((Thief)person).TimeLeftInJail = jailtime * 10*5;
-
-
-
-
-
+                    ((Thief)person).TimeLeftInJail = jailtime * 100;
                 }
             }
             return person;
