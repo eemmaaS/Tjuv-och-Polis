@@ -35,9 +35,9 @@
             Random random = new Random();
             for (int i = 0; i < 15; i++)
             {
-                persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
-                persons.Add(new Police(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
-                persons.Add(new Citizen(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2)));
+                persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false));
+                persons.Add(new Police(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false));
+                persons.Add(new Citizen(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false));
             }
 
             return persons;
@@ -99,7 +99,6 @@
 
         public static void Draw(string[,] drawArray, int offsetLeft)
         {
-
             string frame = "#";
 
             Console.SetCursorPosition(offsetLeft, 0);
@@ -130,6 +129,7 @@
                 Console.Write(frame);
             }
             Console.WriteLine();
+
         }
     }
 }

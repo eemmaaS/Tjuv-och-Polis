@@ -2,7 +2,7 @@
 {
     internal class Citizen : Person
     {
-        public Citizen(int positionX, int positionY, int moveX, int moveY) : base(positionX, positionY, moveX, moveY)
+        public Citizen(int positionX, int positionY, int moveX, int moveY, string activity, bool new_activity) : base(positionX, positionY, moveX, moveY, activity, new_activity)
         {
             this.Inventory.Add(new Thing("Nycklar"));
             this.Inventory.Add(new Thing("Plånbok"));
