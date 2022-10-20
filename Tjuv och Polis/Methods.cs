@@ -35,7 +35,7 @@
             Random random = new Random();
             for (int i = 0; i < 15; i++)
             {
-                persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false));
+                persons.Add(new Thief(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false, 0, false));
                 persons.Add(new Police(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false));
                 persons.Add(new Citizen(random.Next(0, 100), random.Next(0, 25), random.Next(-1, 2), random.Next(-1, 2), "", false));
             }
@@ -50,13 +50,11 @@
                 {
                     if (i != j)
                     {
-                       
-
                         if (persons[i].PositionX == persons[j].PositionX && persons[i].PositionY == persons[j].PositionY)
                         {
                             if (persons[i] is Police)
                             {
-                                ((Police)persons[i]).Interact(persons[j],persons, prisoners,i,j);
+                                ((Police)persons[i]).Interact(persons[j], persons, prisoners, i, j);
                             }
                             else
                             {

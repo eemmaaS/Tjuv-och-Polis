@@ -9,12 +9,15 @@
         }
         public override char Marker => 'P';
 
-        public Person  Interact(Person person, List<Person> people, List<Person> prisoners, int indexi, int indexj)
+        public Person Interact(Person person, List<Person> people, List<Person> prisoners, int indexi, int indexj)
         {
             if (person is Thief)
             {
                 if (person.Inventory.Count > 0)
                 {
+
+                    int jailtime = person.Inventory.Count;
+
                     this.Inventory.AddRange(person.Inventory);
                     person.Inventory.Clear();
                     prisoners.Add(person);
@@ -22,10 +25,13 @@
                     person.PositionX = 0;
                     person.PositionY = 0;
                     Console.SetCursorPosition(0, 39);
-                    Activity = "Nu skickade person " + indexj+ " (polis) person " + indexi + " (tjuv) till fängelset";
+                    Activity = "Nu skickade person " + indexj + " (polis) person " + indexi + " (tjuv) till fängelset";
                     New_activity = true;
-                   
-                    
+                    ((Thief)person).InJail = true;
+                    ((Thief)person).TimeLeftInJail = jailtime * 10*5;
+
+
+
 
 
                 }
@@ -33,6 +39,6 @@
             return person;
         }
 
-      
+
     }
 }
