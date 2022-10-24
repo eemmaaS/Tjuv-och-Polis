@@ -4,16 +4,17 @@
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight); //bestämmer hur stort programfönstret är
+            Console.CursorVisible = false;
             List<string> Activity = new List<string>();
-            Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             List<Person> persons = new List<Person>();
             List<Person> prisoners = new List<Person>();
             persons = Methods.Generate(persons);
-            Console.CursorVisible = false;
+          
             while (true)
             {
-                string[,] city = new string[25, 100];
-                string[,] prison = new string[10, 10];
+                string[,] city = new string[15, 160];
+                string[,] prison = new string[5, 20];
 
                 foreach (Person person in persons)
                 {
@@ -33,13 +34,6 @@
                             {
                                 persons.Add(prisoners[i]);
                                 prisoners.Remove(prisoners[i]);
-                            //var previousCursor = Console.GetCursorPosition();
-                            //Console.SetCursorPosition(50, 50);
-                            //Console.WriteLine("A prisoner has left the jail!");
-                            //Thread.Sleep(200);
-                            //Console.SetCursorPosition(50, 50);
-                            //Console.WriteLine("");
-                            //Console.SetCursorPosition(previousCursor.Left, previousCursor.Top);
                             break;                            
                             }
                         }
@@ -48,7 +42,7 @@
                 Methods.Draw(city);
                 Methods.Draw(prison);
                 Methods.Compare(persons, prisoners);
-                foreach (Person person in persons)
+                foreach (Person person in persons)   //om boolen är true så lagras en aktivitet
                 {
                     if (person.New_activity == true)
                     {       
@@ -61,12 +55,13 @@
                 {
                     Console.WriteLine(Activity[i]);
                 }
-                if (Activity.Count > 10)
+                if (Activity.Count >= 15)
                 {
                     Activity.Clear();
+                    Thread.Sleep(200);
                     Console.Clear();
                 }
-                Console.WriteLine("There are currently " + prisoners.Count + " thief/thieves in prison");
+                Console.WriteLine("Det är " + prisoners.Count + " tjuv/tjuvar i fängelset");
                 persons = Methods.Move(persons, city);
                 prisoners = Methods.Move(prisoners, prison);                              
                 Console.SetCursorPosition(0, 0);

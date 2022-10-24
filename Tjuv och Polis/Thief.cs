@@ -28,7 +28,6 @@
                     person.Inventory.RemoveAt(rnd);
                     Activity = "Persons["+indexi+"](tjuv) har stulit " + stolen_object+ " från persons["+indexj+"](medborgare) ";
                     New_activity = true;
-
                 }
             }
             return person;

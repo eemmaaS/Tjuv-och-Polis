@@ -20,11 +20,11 @@
                     person.Inventory.Clear();
                     prisoners.Add(person);
                     people.Remove(person);
-                    person.PositionX = 0;
+                    person.PositionX = 0;           //resettar tjuvens position till uppe i högra hörnet
                     person.PositionY = 0;
                     Activity = "Nu skickade persons["+indexj+"](polis) persons["+ indexi+"](tjuv) till fängelset";
                     New_activity = true;
-                    ((Thief)person).InJail = true;
+                    ((Thief)person).InJail = true;          //cast
                     ((Thief)person).TimeLeftInJail = jailtime * 100;
                 }
             }
