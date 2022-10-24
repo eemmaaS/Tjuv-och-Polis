@@ -6,6 +6,8 @@
         {
             foreach (Person person in persons)
             {
+                int previousPositionX = person.PositionX;
+                int previousPositionY = person.PositionY;   
                 if (person.PositionX + person.MoveX < 0)
                 {
                     person.PositionX = city.GetLength(1) - 1;
@@ -27,6 +29,7 @@
                     person.PositionY = person.PositionY + person.MoveY;
                     person.PositionX = person.PositionX + person.MoveX;
                 }
+                city[previousPositionY, previousPositionX] = null;
             }
             return persons;
         }
@@ -128,6 +131,66 @@
             }
             Console.WriteLine();
 
+        }
+        public static void CheckActivity(List<Person> persons, List<string> activity)
+        {
+            foreach (Person person in persons)
+            {
+                if (person.New_activity == true)
+                {
+                    activity.Add(person.Activity);
+                    person.New_activity = false;
+                }
+            }
+
+        }
+
+        public static void PrintPrisonStatus(List<Person> prisoners, string[,] prison, string[,] city)
+        {
+            Console.SetCursorPosition( city.GetLength(1) + 3, prison.GetLength(0) + 3);
+            Console.WriteLine("There are currently " + prisoners.Count + " thief/thieves in prison");
+            Console.SetCursorPosition(0, 0);
+        }
+        public static void PrintActivity(List<string> activity, string[,] city)
+        {
+            Console.SetCursorPosition(0, city.GetLength(0) + 3);
+            for (int i = activity.Count - 1; i>activity.Count - 11 ; i--)
+            {
+                if (i > 0)
+                {
+                    Console.WriteLine(i + " " + activity[i] +"           ");
+                    Console.WriteLine();
+                }
+            }
+           
+            Console.SetCursorPosition(0, 0);
+        }
+
+        public static void Updatepositions(string[,] city, string[,] prison, List<Person> persons, List<Person> prisoners)
+        {
+            foreach (Person person in persons)
+            {
+                city[person.PositionY, person.PositionX] = person.Marker.ToString();
+            }
+            foreach (Person thief in prisoners)
+            {
+                prison[thief.PositionY, thief.PositionX] = thief.Marker.ToString();
+            }
+
+            for (int i = 0; i < prisoners.Count; i++)
+            {
+                ((Thief)prisoners[i]).TimeLeftInJail = ((Thief)prisoners[i]).TimeLeftInJail - 1;
+                if (((Thief)prisoners[i]).TimeLeftInJail == 0)
+                {
+                    ((Thief)prisoners[i]).InJail = false;
+                    {
+                        persons.Add(prisoners[i]);
+                        prisoners.Remove(prisoners[i]);
+                  
+                        break;
+                    }
+                }
+            }
         }
     }
 }
