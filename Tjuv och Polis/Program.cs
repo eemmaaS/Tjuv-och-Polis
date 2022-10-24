@@ -46,7 +46,7 @@
                     }
                 
                 Methods.Draw(city);
-                Methods.Draw(prison);
+                Methods.Draw(prison, city.GetLength(1) + 5);
                 Methods.Compare(persons, prisoners);
                 foreach (Person person in persons)
                 {
@@ -59,13 +59,16 @@
 
                 for ( int i = 0; i < Activity.Count; i++)
                 {
+                    Console.SetCursorPosition(city.GetLength(0) + 1, 0);
                     Console.WriteLine(Activity[i]);
+                    Console.SetCursorPosition(0, 0);
                 }
                 if (Activity.Count > 10)
                 {
                     Activity.Clear();
                     Console.Clear();
                 }
+                Console.SetCursorPosition(prison.GetLength(0) + 3, city.GetLength(1) + 1);
                 Console.WriteLine("There are currently " + prisoners.Count + " thief/thieves in prison");
                 persons = Methods.Move(persons, city);
                 prisoners = Methods.Move(prisoners, prison);                              
